@@ -71,7 +71,7 @@ body {
   pointer-events: none;
 }
 .memory-game-blocks .mg-block {
-  height: 140px;
+  height: 90px;
   transition: transform 0.5s;
   transform-style: preserve-3d;
   cursor: pointer;
@@ -103,7 +103,7 @@ body {
   backface-visibility: hidden;
   border: 5px solid #2195f3;
   color: white;
-  font-size: 100px;
+  font-size: 70px;
   text-align: center;
   font-weight: bold;
 }
