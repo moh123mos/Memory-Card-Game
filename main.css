@@ -30,31 +30,28 @@ body {
   box-shadow: 11px 11px 14px 4px rgb(196 61 52);
 }
 .info-container {
-  width: 1080px;
+  max-width: 1080px;
   margin: 20px auto 0;
   background: #009688;
   border: 2px solid #2195f3;
   padding: 20px;
   font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 2px;
   color: white;
   overflow: hidden;
+  display: flex;
+  justify-content: space-between;
   position: relative;
 }
 
-.info-container .name {
-  float: left;
-  width: 50%;
-}
 .info-container .timer {
   position: absolute;
   background: #f44336;
-  width: 120px;
-  height: 100%;
   left: 50%;
   top: 50%;
+  padding: 10px;
   transform: translate(-50%, -50%);
-  padding-top: 20px;
-  text-align: center;
   border: solid #2196f3;
   border-width: 0 2px;
 }
@@ -63,49 +60,40 @@ body {
   font-weight: bold;
   font-size: 25px;
 }
-.info-container .try {
-  float: right;
-  width: 50%;
-  text-align: right;
-}
+
 .memory-game-blocks {
   display: flex;
   flex-wrap: wrap;
-  width: 1100px;
+  max-width: 1100px;
   margin: 20px auto;
 }
 .memory-game-blocks.no-click {
   pointer-events: none;
 }
 .memory-game-blocks .mg-block {
-  height: 200px;
+  height: 140px;
   transition: transform 0.5s;
   transform-style: preserve-3d;
   cursor: pointer;
   position: relative;
-  flex: 1 0 200px;
+  flex: 1 0 16%;
   margin: 0 10px 20px;
   box-shadow: 0px 0px 20px 0px black;
 }
 .memory-game-blocks .mg-block .front {
   background-color: #333;
   line-height: 200px;
-}
-.memory-game-blocks .mg-block .front::before {
-  content: "!";
-  color: white;
-  font-size: 140px;
-  text-align: center;
-  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .memory-game-blocks .mg-block .back {
   background-color: #607d8b;
   transform: rotateY(180deg);
 }
 .memory-game-blocks .mg-block .back img {
-  width: 169px;
-  height: 170px;
-  margin-top: 12px;
+  width: 100%;
+  height: 100%;
 }
 .memory-game-blocks .mg-block .face {
   position: absolute;
@@ -114,6 +102,10 @@ body {
   text-align: center;
   backface-visibility: hidden;
   border: 5px solid #2195f3;
+  color: white;
+  font-size: 100px;
+  text-align: center;
+  font-weight: bold;
 }
 .memory-game-blocks .mg-block.is-flipped,
 .memory-game-blocks .mg-block.has-match {
@@ -122,4 +114,59 @@ body {
   -moz-transform: rotateY(180deg);
   transform: rotateY(180deg);
   pointer-events: none;
+}
+@media (max-width: 1099px) {
+  .info-container {
+    max-width: 1000px;
+    padding: 5px;
+    padding-bottom: 60px;
+    font-size: 18px;
+    .timer {
+      top: auto;
+      bottom: -24px;
+    }
+  }
+  .memory-game-blocks {
+    max-width: 1000px;
+    .mg-block {
+      height: 90px;
+      width: 16%;
+      flex: auto;
+      .face {
+        font-size: 70px;
+      }
+      .front {
+        line-height: normal;
+      }
+    }
+  }
+}
+@media (max-width: 767px) {
+  .info-container {
+    max-width: 750px;
+  }
+  .memory-game-blocks {
+    max-width: 750px;
+    .mg-block {
+      height: 90px;
+      width: 16%;
+      flex: auto;
+    }
+  }
+}
+@media (max-width: 576px) {
+  .info-container {
+    max-width: 550px;
+  }
+  .memory-game-blocks {
+    max-width: 550px;
+    .mg-block {
+      height: 65px;
+      width: 16%;
+      flex: auto;
+      .face {
+        font-size: 50px;
+      }
+    }
+  }
 }
